@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&display=swap');
+.sidebar__main{
+    width: 22%;
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    background-image: url("https://newtemplate.net/demo/resume/template/side-menu-wave/images/map.png");
+    background-position: -880px -160px;
+    background-position-x: -880px;
+    background-position-y: -160px;
+    
+    font-family: 'Roboto Slab', serif;
+}
+.sidebar__citiLogo{
+    width: 30%;
+    align-self: center;
+    margin-top: 10%;
+}
+.sidebar__menu{
+    margin-top: 25%;
+}
