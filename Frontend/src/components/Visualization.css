@@ -1,0 +1,14 @@
+.visual__main{
+    width: 100%;
+    
+}
+.visual__chart{
+    background-color: white;
+    margin:  3% 8%;
+    padding: 2%;
+    border-radius: 30px;
+    width: 100%;
+    position: relative;
+    top: 40%;
+    left: 20%;
+}

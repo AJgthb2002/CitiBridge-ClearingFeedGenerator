@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&display=swap');
+.sidebartab__main{
+    text-align: left;
+    display: flex;
+    padding: 12px 0;
+    margin: 0;
+    align-items: center;
+    border-width: 1px;
+    margin: 5px 0;
+    box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+    background-color: white;
+    border-radius: 10px;
+    
+    
+    font-family: 'Roboto Slab', serif;
+    
+  
+}
+.tabName{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: #3e43e9;
+}
+.sidebartab__icon{
+    padding: 0 20px 0 10px ;
+    color: #3e43e9;
+
+}

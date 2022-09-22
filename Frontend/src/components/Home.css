@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&display=swap");
+.home__main {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(56, 77, 233, 0.52),
+      rgba(117, 19, 93, 0.73)
+    ),
+    url("https://wallpaperaccess.com/full/1691795.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: large;
+  justify-content: center;
+  
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.home__title {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: "Roboto Slab", serif;
+  margin-bottom: 2%;
+}
+.home__waveImage {
+  position: absolute;
+  bottom: 0;
+}
+
+.home__check__btn {
+  padding: 10px;
+  width: 27%;
+  border-radius: 20px;
+  border: 0;
+  background-color: #86258b;
+  font-family: "Roboto Slab", serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  
+}
+input[type="file"]{
+    display: none;
+
+}
+label{
+  padding: 11px 10px;
+  width: 26%;
+  border-radius: 20px;
+  border: 0;
+  background-color:#3e43e9;
+  font-family: "Roboto Slab", serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  text-align: center;
+  margin-bottom: 1%;
+  align-items: center;
+  justify-content: center;
+}

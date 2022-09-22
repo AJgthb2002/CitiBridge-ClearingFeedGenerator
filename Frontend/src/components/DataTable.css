@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&display=swap');
+.table__cell{
+    font-family: 'Roboto Slab', serif !important;
+    font-size: 14px !important;
+    font-weight: 500  !important;
+    color: #6569ed I !important;
+}
+.table__head{
+    font-family: 'Roboto Slab', serif !important;
+    font-size: 14px !important;
+    font-weight: 700  !important;
+    align-self: center !important;
+    color: #6569ed !important;
+}
