@@ -55,6 +55,22 @@
 
 ### Local Setup:
 
+Download Code folder </br>
+- **Backend** :
+1. Open Eclipse or STS.
+2. Go to File -> Import Project -> Maven -> Existing Maven Projects -> Browse Folder location -> check "Add project to working set" -> Finish
+3. Right click on pom.xml -> Maven -> Update Project
+4. Open Boot Dashboard
+5. Right Click on Project -> start
+6. Server will get started on port 8080
+
+- **Frontend** :
+1. Open folder with VS Code 
+2. Open terminal
+3. Run command 'npm install' to install the dependencies. 
+4. Run command 'npm start' to start the server
+5. Open http://localhost:3000 from your browser
+
 ***
 
 ### References/ Additional sources:
