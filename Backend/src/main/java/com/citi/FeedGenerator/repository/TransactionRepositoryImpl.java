@@ -76,7 +76,7 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 				String refNo = splitData[0].substring(0, 12);
 
 				String date = splitData[0].substring(12,20);
-				date = date.substring(0,2)+"-"+date.substring(2,4)+"-"+date.substring(4);
+				date = date.substring(0,2)+"/"+date.substring(2,4)+"/"+date.substring(4);
 				payer = new Person();
 				payer.setName(splitData[0].substring(20));
 				payer.setAccount(splitData[1].substring(0,12));
@@ -148,7 +148,7 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 		//validate date
 		long millis=System.currentTimeMillis();  
         Date dateObj = new Date(millis);
- 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+ 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
  		String currentDate = formatter.format(dateObj);
  		
 		if(!(currentDate.equals(date)))
