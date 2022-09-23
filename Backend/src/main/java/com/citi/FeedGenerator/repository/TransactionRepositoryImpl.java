@@ -34,6 +34,15 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 	@Autowired
 	DataSource dataSource;
 
+	@Autowired
+	Transaction transaction;
+	
+	@Autowired 
+	Person payer;
+	
+	@Autowired 
+	Person payee;
+	
 	@Override
 	public ArrayList<ArrayList<Transaction>> readFile(String fileName) {
 		//returns array list containing all Transactions from file in object Transaction form
@@ -62,20 +71,19 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 
 				String[] splitData = i.split("\\s+");	//check for more than one spaces while splitting
 
-				Transaction transaction = new Transaction();
+				transaction = new Transaction();
 
 				String refNo = splitData[0].substring(0, 12);
 
 				String date = splitData[0].substring(12,20);
 				date = date.substring(0,2)+"-"+date.substring(2,4)+"-"+date.substring(4);
-				Person payer = new Person();
+				payer = new Person();
 				payer.setName(splitData[0].substring(20));
 				payer.setAccount(splitData[1].substring(0,12));
 
-				Person payee = new Person();
+				payee = new Person();
 				payee.setName(splitData[1].substring(12));
 				payee.setAccount(splitData[2]);
-
 				double amount = Double.parseDouble(splitData[3]);
 
 				transaction.setRefNo(refNo);
@@ -212,6 +220,7 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 					if(transaction.getRefNo().equals(allTransactions.get(j).getRefNo()))
 					{
 						invalidTransactions.add(transaction);
+						transaction.setReason("Invalid Reference Number");
 						flag = false;
 						break;
 					}
@@ -227,36 +236,11 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 		validatedTransactions.add(validTransactions);
 		validatedTransactions.add(invalidTransactions);
 
-//		System.out.println("Valid - "+validTransactions);
-//		System.out.println(validTransactions.size());
-//		System.out.println("InValid - "+invalidTransactions);
-
 		//save all valid transactions to database
 		saveValidTransactions(validTransactions);
-		writeValidFile(validTransactions);
 		return validatedTransactions;
 	}
 
-	@Override
-	public void writeValidFile(ArrayList<Transaction> validTransactions) throws IOException {
-		
-		CSVWriter writer = new CSVWriter(new FileWriter("src/main/resources/templates/validTransactions.csv"));	
-
-		String[] header = { "Ref No", "Date", "Payer", "Payer AccNo.", "Payee", "Payee AccNo.", "Amount" };
-        writer.writeNext(header);
-        
-		for (Transaction t: validTransactions) {
-			String[] line = { t.getRefNo(),t.getDate(),t.getPayer().getName(),t.getPayer().getAccount(),
-					t.getPayee().getName(),t.getPayee().getAccount(), Double.toString(t.getAmount()) };
-			
-				writer.writeNext(line);
-				
-//				for(String s: line) {
-//					System.out.println(s);
-//				}
-			}
-		writer.flush();
-	}
 
 	@Override
 	public boolean saveValidTransactions(ArrayList<Transaction> validTransactions) throws IOException{

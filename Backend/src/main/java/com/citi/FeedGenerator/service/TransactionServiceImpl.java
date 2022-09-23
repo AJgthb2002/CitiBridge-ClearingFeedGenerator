@@ -60,11 +60,6 @@ public class TransactionServiceImpl implements TransactionService {
 		return transactionRepository.validate(allTransactions);
 	}
 
-	@Override
-	public void writeValidFile(ArrayList<Transaction> validTransactions) throws IOException{
-		
-		transactionRepository.writeValidFile(validTransactions);
-	}
 
 	@Override
 	public boolean saveValidTransactions(ArrayList<Transaction> validTransactions) throws IOException{
