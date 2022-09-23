@@ -16,7 +16,9 @@
 
 
 ### Screenshots:
-<img width="960" alt="image" src="https://user-images.githubusercontent.com/73184612/190347221-097954d3-9404-4822-a7f6-352611ef0c67.png">
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/73184612/191727648-757ed4c0-fbaf-4e43-8f96-d8d2c714ada6.jpeg">
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/73184612/191727534-422799ef-65f8-4254-ad2b-6e321e87f397.jpeg">
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/73184612/191727401-f9c79273-67f6-4b89-a1e8-77cb5f4462bc.jpeg">
 
 
 ### Functional Features:
@@ -28,7 +30,10 @@
 :white_check_mark: Functionality for user to download the valid transactions file ⬇️ </br>
 :white_check_mark: Visualization of metrics around the clearing feed generation 📊 </br>
 
-Image of Web App flow
+### System Diagram
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/73184612/191729032-f61ea2aa-fd52-4a1d-81ab-d0382094f94b.png">
+
+
 
 ### Technologies Used:
 | Name | Description
@@ -50,6 +55,22 @@ Image of Web App flow
 
 ### Local Setup:
 
+Download Code folder </br>
+- **Backend** :
+1. Open Eclipse or STS.
+2. Go to File -> Import Project -> Maven -> Existing Maven Projects -> Browse Folder location -> check "Add project to working set" -> Finish
+3. Right click on pom.xml -> Maven -> Update Project
+4. Open Boot Dashboard
+5. Right Click on Project -> start
+6. Server will get started on port 8080
+
+- **Frontend** :
+1. Open folder with VS Code 
+2. Open terminal
+3. Run command 'npm install' to install the dependencies. 
+4. Run command 'npm start' to start the server
+5. Open http://localhost:3000 from your browser
+
 ***
 
 ### References/ Additional sources:
@@ -65,6 +86,6 @@ https://www.smartcheque.com.au/solutions/cheque-truncation-system-cts.html
 - <a href="https://github.com/AJgthb2002"><img src="https://user-images.githubusercontent.com/73184612/190358185-66c69665-94d3-4562-9649-ffd7e58e8730.png" height="20" width="20"></a> Ananya Joshi
 
 - <a href="https://github.com/ishashivalkar25"><img src="https://user-images.githubusercontent.com/73184612/190358185-66c69665-94d3-4562-9649-ffd7e58e8730.png" height="20" width="20"></a> Isha Shivalkar  
-- <a href="https://github.com/PrachiNarlawar-2020"><img src="https://user-images.githubusercontent.com/73184612/190358185-66c69665-94d3-4562-9649-ffd7e58e8730.png" height="20" width="20"></a> Prachi Narlawar 
-- <a href="https://github.com/samruddhideode "><img src="https://user-images.githubusercontent.com/73184612/190358185-66c69665-94d3-4562-9649-ffd7e58e8730.png" height="20" width="20"></a> Samruddhi Deode  
-- <a href="https://github.com/Swati0511-debug"><img src="https://user-images.githubusercontent.com/73184612/190358185-66c69665-94d3-4562-9649-ffd7e58e8730.png" height="20" width="20"></a> Swati Borse     
+- <a href=""><img src="https://user-images.githubusercontent.com/73184612/190358185-66c69665-94d3-4562-9649-ffd7e58e8730.png" height="20" width="20"></a> Prachi Narlawar 
+- <a href="https://github.com/samruddhideode"><img src="https://user-images.githubusercontent.com/73184612/190358185-66c69665-94d3-4562-9649-ffd7e58e8730.png" height="20" width="20"></a> Samruddhi Deode  
+- <a href="https://github.com/Swati0511-debug"><img src="https://user-images.githubusercontent.com/73184612/190358185-66c69665-94d3-4562-9649-ffd7e58e8730.png" height="20" width="20"></a> Swati Borse   
