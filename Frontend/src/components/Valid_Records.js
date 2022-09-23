@@ -15,7 +15,6 @@ function Valid_Records() {
 
   const getValidTransactions = async()=> {
     const result = await axios.get("http://localhost:8080/GetValidTransactions")
-    console.log(result)
     setTransactions(result.data)
   }
 
@@ -29,13 +28,7 @@ function Valid_Records() {
         <p style={{ margin: "0px" }}>Valid Records</p>
       </div>
       <DataTable transactions={transactions}></DataTable>
-      {/* <a
-        href="C:\Users\ishas\CitiBridge2\FeedGeneratorNew\src\main\resources\downloadedFiles\validTransactions.csv"
-        download
-        className="download__records grow"
-      >
-        Download Valid Records
-      </a> */}
+  
       <DownloadButton></DownloadButton>
     </div>
   );

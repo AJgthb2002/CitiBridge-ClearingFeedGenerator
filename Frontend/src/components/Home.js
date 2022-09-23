@@ -6,13 +6,17 @@ import axios from "axios";
 
 function Home(props) {
 
+  const [fileName, setFileName] = React.useState("No File Chosen");
   const [file, setFile] = React.useState(null)
-
-  const handleFile = async (e)=> {
-    console.log(e.target.files[0], "88888");
-    setFile(e.target.files[0])
-  }
-
+  let handleChange = (e) => {
+    var files = e.target.files;
+    setFile(e.target.files[0]);
+    var filesArray = [].slice.call(files);
+    filesArray.forEach((e) => {
+      setFileName(e.name);
+      console.log(e.name);
+    });
+  };
   const uploadFile = ()=> {
     let formData = new FormData();
     formData.append("file", file);
@@ -29,7 +33,7 @@ function Home(props) {
     >
       <h1 className="home__title">Clearing Feed Generation</h1>
 
-      <input type="file" id="file" accept="file-extension" onChange={(e) => handleFile(e)}></input>
+      <input type="file" id="file" accept=".txt" onChange={(e) => handleChange(e)}></input>
       <label for="file" class="grow">
         <BsUpload
           size="18px"
@@ -38,6 +42,8 @@ function Home(props) {
         ></BsUpload>
         Choose a File
       </label>
+
+      <p className="fileChosen">{fileName}</p>
 
       <button class="home__check__btn grow" type="submit" onSubmit={uploadFile()}>
         <BsFillFileEarmarkCheckFill

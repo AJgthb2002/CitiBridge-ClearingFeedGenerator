@@ -41,10 +41,12 @@ function Sidebar() {
       </div>
 
       <h5 style={{ margin: "30% 0 0 0" }}>Developed by Group 19</h5>
+      <a href="https://github.com/ishashivalkar25/CitiBridge-ClearingFeedGenerator"> 
       <FaGithub
-        size="28px"
-        style={{ alignSelf: "center", marginTop: "5%", color: "#706c6c" }}
+              size="28px"
+              style={{ alignSelf: "center", marginTop: "5%", color: "#706c6c" }}
       ></FaGithub>
+      </a>
     </div>
   );
 }

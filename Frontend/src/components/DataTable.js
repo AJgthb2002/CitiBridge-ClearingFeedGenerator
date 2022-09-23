@@ -165,7 +165,6 @@ export default function DataTable(props) {
 
   const rows = [];
   const transactions = props.transactions;
-    console.log(transactions);
     transactions.forEach((transaction) => {
         rows.push(createData(transaction.refNo, transaction.date, transaction.payee.name, transaction.payee.account, transaction.payer.name, transaction.payer.account, transaction.amount));
     });

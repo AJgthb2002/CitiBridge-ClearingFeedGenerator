@@ -1,22 +1,32 @@
 import "../components/DownloadButton.css";
+import React from "react";
+import axios from "axios";
 
 const DownloadButton = props => { 
     
-    const downloadFile = () => { 
-        console.log("Downloading")
-        fetch('http://localhost:8080/validTransactions.csv', { mode: 'no-cors'})
-			.then(response => {
-				response.blob().then(blob => {
-					let url = window.URL.createObjectURL(blob);
-					let a = document.createElement('a');
-					a.href = url;
-					a.download = 'validTransactions.csv';
-					a.click();
-				});
-			
+	const [transactions, setTransactions] = React.useState([]);
+	const [transactionCSV, setTransactionCSV] = React.useState("");
+
+	React.useEffect(() => { 
+		getValidTransactions();
+	}, []);
+
+	const getValidTransactions = async()=> {
+		const result = await axios.get("http://localhost:8080/GetValidTransactions")
+		// console.log(result)
+		setTransactions(result.data)
+	}
+
+	const convertToCSVfile = (data) => {
+		let res = "Ref No,Date,Payer,Payer AccNo.,Payee,Payee AccNo.,Amount\n";
+		data.forEach((transaction) => {
+ 		  let row_csv = transaction.refNo + "," + transaction.date + "," + transaction.payee.name + "," + transaction.payee.account + "," + transaction.payer.name + "," + transaction.payer.account + "," + transaction.amount; 
+		  res += row_csv + "\n";
 		});
-        // window.location.href = "C:/Users/ishas/CitiBridge2/FeedGeneratorNew/src/main/resources/downloadedFiles/validTransactions.csv" 
-    } 
-    return ( <button className="download__records" onClick={downloadFile} > Download Valid Records </button> ) 
+		let file = new Blob([res], { type: "text/plain" });
+		return URL.createObjectURL(file);
+	};
+
+    return ( <a href={transactionCSV} download={`validRecords.csv`} style = {{alignSelf : "flex-end", width : "100%"}}><button className="download__records" onClick={(e) => setTransactionCSV(convertToCSVfile(transactions))} >  Download Valid Records </button> </a>) 
 } 
 export default DownloadButton;

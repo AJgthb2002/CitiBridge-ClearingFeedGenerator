@@ -12,62 +12,51 @@ export const data1 = {
   datasets: [
     {
       label: "Valid vs Invalid Records",
-      data: [12, 19],
+      data: [0, 0],
       backgroundColor: ["#b5b4ec", "#c586ec"],
     },
   ],
 };
 
 export const data2 = {
-  labels: ["Invalid Reference Number", "Invalid Transaction Date", "Invalid Payer Name", "Invalid Payer Account", "Invalid Payee Name", "Invalid Payee Account", "Invalid Amount"],
-  labels: ["Reason1", "Reason2", "Reason3", "Reason4", "Reason5"],
+  labels: ["R1", "R2", "R3", "R4", "R5", "R6", "R7"],
   datasets: [
     {
       label: "Distribution of Invalid Records",
-      data: [12, 19, 3, 14, 5, 2, 0],
-      backgroundColor: ["#b5b4ec", "#c586ec", "#9c83db", "#002e7e", "#90c5df"],
+      data: [0, 0, 0, 0, 0, 0, 0],
+      backgroundColor: [
+        "#4066e0",
+        "#b5b4ec",
+        "#9c83db",
+        "#c586ec",
+        "#e090df",
+        "#fbbede",
+        "#ffc7ba",
+      ],
     },
   ],
 };
 
-const labelIndices = { 
-  "Invalid Reference Number" : 0 , 
-  "Invalid Transaction Date" : 1 , 
-  "Invalid Payer Name": 2 ,
-  "Invalid Payer Account" : 3 , 
-  "Invalid Payee Name" : 4 , 
-  "Invalid Payee Account" : 5 ,
-  "Invalid Amount" : 6
-};
-
 function Visualization() {
 
-  const [validTransactions, setValidTransactions] = React.useState([]);
-  const [invalidTransactions, setInvalidTransactions] = React.useState([]);
-
-  const getValidTransactions = async()=> {
-    const result = await axios.get("http://localhost:8080/GetValidTransactions")
-    setValidTransactions(result.data);
-  }
-  const getInValidTransactions = async()=> {
-    const result = await axios.get("http://localhost:8080/GetInvalidTransactions")
-    setInvalidTransactions(result.data);
-  }
+  const [transactionCount, setTransactionCount] = React.useState([]);
 
   React.useEffect(() => { 
-    getInValidTransactions();
-    getValidTransactions();
-    console.log(invalidTransactions);
-    //set invalid records' reason count
-    invalidTransactions.forEach((invalidTransaction) => { 
-      data2.datasets[0].data[labelIndices[invalidTransaction.reason]] = data2.datasets[0].data[labelIndices[invalidTransaction.reason]] + 1;
-    });
-    //set valid-invalid records count
-    data1.datasets[0].data[0] = validTransactions.length;
-    data1.datasets[0].data[1] = invalidTransactions.length;
-    console.log(data2.datasets[0].data);
-  }, [])
+    getTransactionCountPerReason();
 
+    for(let i = 0 ; i < transactionCount.length-2; i++) {
+      data2.datasets[0].data[i] = transactionCount[i];
+    }
+    data1.datasets[0].data[0] = transactionCount[7];
+    data1.datasets[0].data[1] = transactionCount[8];
+
+  }, [transactionCount]);
+
+  const getTransactionCountPerReason = async()=> {
+    const result = await axios.get("http://localhost:8080/GetTransactionCountPerReason")
+    setTransactionCount(result.data);
+  }
+  
   return (
     <div
       className="visual__main"
@@ -122,6 +111,28 @@ function Visualization() {
             },
           }}
         />
+      </div>
+      <div className="shorthands">
+        <h3>Shorthands</h3>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <div className="left_part_shorthands">
+            <p style={{ color: "#1e4de8" }}>R1 : Invalid Reference Number</p>
+            <p style={{ color: "#8280f0" }}>R2 : Invalid Transaction Date</p>
+            <p style={{ color: "#9c83db" }}>R3 : Invalid Payer Name</p>
+            <p style={{ color: "#bd6cef" }}>R4 : Invalid Payer Account</p>
+          </div>
+          <div className="right_part_shorthands">
+            <p style={{ color: "#ea76e8" }}>R5 : Invalid Payee Name</p>
+            <p style={{ color: "#fb93c9" }}>R6 : Invalid Payee Account</p>
+            <p style={{ color: "#f79079" }}>R7 : Invalid Amount</p>
+          </div>
+        </div>
       </div>
     </div>
   );

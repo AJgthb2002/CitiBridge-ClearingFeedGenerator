@@ -14,7 +14,6 @@ function Invalid_Records() {
 
   const getInvalidTransactions = async()=> {
     const result = await axios.get("http://localhost:8080/GetInvalidTransactions")
-    console.log(result)
     setTransactions(result.data)
   }
 
