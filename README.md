@@ -79,7 +79,8 @@ Download Code folder </br>
 **Icons**: https://fontawesome.com/ </br>
 **Charts & Visualization** : https://react-chartjs-2.js.org/ </br>
 **Open Source Vector Images**: https://undraw.co/ , https://storyset.com/ </br>
-https://www.smartcheque.com.au/solutions/cheque-truncation-system-cts.html
+https://www.smartcheque.com.au/solutions/cheque-truncation-system-cts.html </br>
+https://newtemplate.net/demo/resume/template/side-menu-wave/index.html
 
 ***
 ## Group 19 team members
